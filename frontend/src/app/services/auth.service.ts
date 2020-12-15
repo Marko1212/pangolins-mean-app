@@ -11,6 +11,7 @@ export class AuthService {
   isAuth$ = new BehaviorSubject<boolean>(false);
   token: string;
   userId: string;
+  userEmail: string;
 
   constructor(private router: Router,
               private http: HttpClient) { }
@@ -52,6 +53,7 @@ export class AuthService {
           (data: { token: string, userId: string }) => {
             this.token = data.token;
             this.userId = data.userId;
+            this.userEmail = email;
             this.isAuth$.next(true);
             resolve();
           },
@@ -65,6 +67,7 @@ export class AuthService {
   logout() {
     this.isAuth$.next(false);
     this.userId = null;
+    this.userEmail = null;
     this.token = null;
   }
 }
