@@ -3,6 +3,8 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
+const userRoutes = require('./routes/user')
+
 const app = express()
 
 const uri = 'mongodb+srv://' +
@@ -33,5 +35,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res, next) => {
   res.status(200).send('Pangolin backend')
 })
+
+app.use('/api/auth', userRoutes)
 
 module.exports = app
