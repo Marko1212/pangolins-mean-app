@@ -1,0 +1,13 @@
+.friends {
+  border: solid white 1px;
+  border-radius: 30px;
+}
+
+.friends li {
+  background-color: #263238;
+  border: none;
+}
+
+.friends li div {
+  align-items: center;
+}
