@@ -3,6 +3,8 @@ const router = express.Router()
 
 const userCtrl = require('../controllers/user')
 
+router.get('/users', userCtrl.getAll)
+
 router.post('/auth/signup', userCtrl.signup)
 router.post('/auth/login', userCtrl.login)
 
