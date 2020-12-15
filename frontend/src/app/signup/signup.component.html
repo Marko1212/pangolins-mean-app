@@ -1,30 +1,31 @@
 <div class="container">
-  <form class="d-flex flex-column">
+  <form class="d-flex flex-column" [formGroup]="signupForm">
     <div class="input-group mb-3">
-      <input type="email" class="form-control" placeholder="Email" aria-label="Email" required>
+      <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="number" class="form-control" placeholder="Age" aria-label="Age" min="1" max="20">
+      <input type="number" class="form-control" placeholder="Age" aria-label="Age" min="1" max="20" id="age" formControlName="age">
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Family" aria-label="Family" required>
+      <input type="text" class="form-control" placeholder="Family" aria-label="Family" id="family" formControlName="family" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Breed" aria-label="Breed" required>
+      <input type="text" class="form-control" placeholder="Breed" aria-label="Breed" id="breed" formControlName="breed" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Food" aria-label="Food" required>
+      <input type="text" class="form-control" placeholder="Food" aria-label="Food" id="food" formControlName="food" required>
     </div>
-
-    <button class="btn btn-light mx-auto px-5" (clik)="onSubmit()">Sign up</button>
+    <button class="btn btn-light mx-auto px-5" (click)="onSignup()" [disabled]="signupForm.invalid">Sign up</button>
+    <p class="text-danger mt-2 text-center">{{ errorMessage }}</p>
     <a class="text-info mx-auto mt-5" [routerLink]="['/login']">Already have an account ?</a>
   </form>
+
 </div>
