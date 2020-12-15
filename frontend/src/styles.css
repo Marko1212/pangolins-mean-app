@@ -14,6 +14,10 @@ main {
   flex-direction: column;
 }
 
-app-signup, app-login {
+app-signup, app-login, app-profile {
   margin: auto 0;
+}
+
+app-profile {
+  align-self: center;
 }

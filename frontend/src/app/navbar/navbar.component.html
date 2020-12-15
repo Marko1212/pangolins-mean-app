@@ -15,7 +15,7 @@
     <a class="navbar-brand mx-auto" routerLink=''>Pangolinbook</a>
   </div>
   <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-    <ul class="navbar-nav ml-auto">
+    <ul *ngIf="!isAuth; else userInfos" class="navbar-nav ml-auto">
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/signup']">Sign Up</a>
       </li>
@@ -23,5 +23,15 @@
         <a class="nav-link" [routerLink]="['/login']">Login</a>
       </li>
     </ul>
+    <ng-template #userInfos>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <button class="nav-link btn btn-link" (click)="onLogout()">Logout</button>
+        </li>
+      </ul>
+    </ng-template>
   </div>
 </nav>

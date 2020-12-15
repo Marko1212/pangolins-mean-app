@@ -10,10 +10,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: HomePageComponent, canActivate: [AuthGuardService] },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent }
 ];
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     HomePageComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
