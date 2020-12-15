@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
     this.signupForm = this.formBuilder.group({
       email: [null, [Validators.required, Validators.email]],
       password: [null, Validators.required],
-      age: [null, [Validators.min(1), Validators.max(20), Validators.pattern('^[0-9]\d*$')]],
+      age: [null, [Validators.min(1), Validators.max(20)]],
       family: [null],
       breed: [null],
       food: [null]
