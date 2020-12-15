@@ -29,12 +29,12 @@ export class ModifyUserComponent implements OnInit {
         this.userService.getUserById(params.id).then(
           data => {
             this.editForm = this.formBuilder.group({
-              email: [data.email],
+              email: [(<any>data).email],
               password: [null],
-              age: [data.age, [Validators.min(1), Validators.max(20)]],
-              family: [data.family],
-              breed: [data.breed],
-              food: [data.food]
+              age: [(<any>data).age, [Validators.min(1), Validators.max(20)]],
+              family: [(<any>data).family],
+              breed: [(<any>data).breed],
+              food: [(<any>data).food]
             });
             this.loading = false;
           }

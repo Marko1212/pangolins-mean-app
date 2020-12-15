@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
 
-  friends: string[] = [];
-  users: string[] = [];
+  friends: any[] = [];
+  users: any = [];
 
   constructor(private auth: AuthService,
               private userService: UserService,
@@ -19,7 +19,7 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getFriendsByEmail(this.auth.userEmail).then(friends => {
-      friends.friends.forEach(id => {
+      (<any>friends).friends.forEach(id => {
         this.userService.getUserById(id).then(friend => {
           this.friends.push(friend);
         })
@@ -43,7 +43,6 @@ export class HomePageComponent implements OnInit {
   }
 
   onRemove(id: string) {
-    console.log(id)
     this.userService.removeFriend(id).then(() => {
       console.log('You lost a friend');
     })

@@ -29,11 +29,11 @@ export class ProfileComponent implements OnInit {
         if (params.id === this.auth.userId) this.isMyProfile = true;
         this.userService.getUserById(params.id).then(
           data => {
-            this.email = data.email != null ? data.email : 'Unknown';
-            this.age = data.age != null ? data.age : 'Unknown';
-            this.family = data.family != null ? data.family : 'Unknown';
-            this.breed = data.breed != null ? data.breed : 'Unknown';
-            this.food = data.food != null ? data.food : 'Unknown';
+            this.email = (<any>data).email != null ? (<any>data).email : 'Unknown';
+            this.age = (<any>data).age != null ? (<any>data).age : 'Unknown';
+            this.family = (<any>data).family != null ? (<any>data).family : 'Unknown';
+            this.breed = (<any>data).breed != null ? (<any>data).breed : 'Unknown';
+            this.food = (<any>data).food != null ? (<any>data).food : 'Unknown';
           }
         )
       }
