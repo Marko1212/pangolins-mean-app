@@ -83,7 +83,7 @@ export class UserService {
     });
   }
 
-  addFriend(email: string, id: string) {
+  addFriend(id: string) {
     return new Promise((resolve, reject) => {
       this.http.put(
         'http://localhost:3000/api/friends/add',
@@ -99,9 +99,9 @@ export class UserService {
     });
   }
 
-  removeFriend(email: string, id: string) {
+  removeFriend(id: string) {
     return new Promise((resolve, reject) => {
-      this.http.delete(
+      this.http.put(
         'http://localhost:3000/api/friends/remove',
         { email: this.auth.userEmail , id: id }
       ).subscribe(
