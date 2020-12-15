@@ -1,14 +1,14 @@
 <div class="container">
-  <form class="d-flex flex-column">
+  <form class="d-flex flex-column" [formGroup]="loginForm">
     <div class="input-group mb-3">
-      <input type="email" class="form-control" placeholder="Email" aria-label="Email" required>
+      <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
     </div>
 
-    <button class="btn btn-light mx-auto px-5" (clik)="onSubmit()">Login</button>
+    <button class="btn btn-light mx-auto px-5" (click)="onSubmit()" [disabled]="loginForm.invalid">Login</button>
     <span class="text-light mx-auto mt-5">
       Not a member ?
       <a class="text-info" [routerLink]="['/signup']">Sign up now !</a>
