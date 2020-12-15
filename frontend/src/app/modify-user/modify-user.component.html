@@ -1,11 +1,11 @@
-<div class="container">
-  <form class="d-flex flex-column" [formGroup]="signupForm">
+<div *ngIf="!loading" class="container">
+  <form class="d-flex flex-column" [formGroup]="editForm">
     <div class="input-group mb-3">
-      <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
+      <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email" disabled>
     </div>
 
     <div class="input-group mb-3">
-      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
+      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password">
     </div>
 
     <div class="input-group mb-3">
@@ -23,9 +23,10 @@
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Food" aria-label="Food" id="food" formControlName="food">
     </div>
-    <button class="btn btn-light mx-auto px-5" (click)="onSignup()" [disabled]="signupForm.invalid">Sign up</button>
-    <p class="text-danger mt-2 text-center">{{ errorMessage }}</p>
-    <a class="text-info mx-auto mt-5" [routerLink]="['/login']">Already have an account ?</a>
+    <div class="btn-group" role="group">
+      <button class="btn btn-success mx-auto px-5" (click)="onEdit()" [disabled]="editForm.invalid">Save</button>
+      <button class="btn btn-danger mx-auto px-5" (click)="onCancel()">Cancel</button>
+    </div>
   </form>
 
 </div>

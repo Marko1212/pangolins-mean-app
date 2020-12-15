@@ -10,6 +10,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  loginForm: FormGroup;
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
       }
     ).catch(
       (error) => {
-        this.errorMessage = error.message;
+        this.errorMessage = error.error.error;
       }
     );
   }

@@ -14,7 +14,7 @@ main {
   flex-direction: column;
 }
 
-app-signup, app-login, app-profile {
+app-signup, app-login, app-profile, app-modify-user {
   margin: auto 0;
 }
 

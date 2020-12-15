@@ -8,7 +8,8 @@
       <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
     </div>
 
-    <button class="btn btn-light mx-auto px-5" (click)="onSubmit()" [disabled]="loginForm.invalid">Login</button>
+    <button class="btn btn-light mx-auto px-5" (click)="onSubmit()">Login</button>
+    <p class="text-danger mt-2 text-center">{{ errorMessage }}</p>
     <span class="text-light mx-auto mt-5">
       Not a member ?
       <a class="text-info" [routerLink]="['/signup']">Sign up now !</a>
