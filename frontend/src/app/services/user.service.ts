@@ -1,12 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private auth: AuthService,) { }
+
+  getUsers() {
+    return new Promise((resolve, reject) => {
+      this.http.get('http://localhost:3000/api/users').subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
 
   getUserById(id: string) {
     return new Promise((resolve, reject) => {
@@ -52,6 +67,51 @@ export class UserService {
             reject(error);
           }
         );
+    });
+  }
+
+  getFriendsByEmail(email: string) {
+    return new Promise((resolve, reject) => {
+      this.http.get('http://localhost:3000/api/friends/' + email).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  addFriend(email: string, id: string) {
+    return new Promise((resolve, reject) => {
+      this.http.put(
+        'http://localhost:3000/api/friends/add',
+        { email: this.auth.userEmail , id: id }
+      ).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  removeFriend(email: string, id: string) {
+    return new Promise((resolve, reject) => {
+      this.http.delete(
+        'http://localhost:3000/api/friends/remove',
+        { email: this.auth.userEmail , id: id }
+      ).subscribe(
+        (response) => {
+          resolve(response);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   }
 }
