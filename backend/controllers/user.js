@@ -53,7 +53,21 @@ exports.getOneUser = (req, res, next) => {
 }
 
 exports.modifyUser = (req, res, next) => {
-  User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
-    .then(() => res.status(200).json({ message: 'Objet modifié !' }))
-    .catch(error => res.status(400).json({ error }))
+  if (req.body.password !== '' && req.body.password != null) {
+    bcrypt.hash(req.body.password, 10)
+      .then(hash => {
+        console.log(req.body.password)
+        req.body.password = hash
+        console.log(req.body.password)
+        User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+          .then(() => res.status(200).json({ message: 'User modified !' }))
+          .catch(error => res.status(400).json({ error }))
+      })
+      .catch(error => res.status(500).json({ error }))
+  } else {
+    delete req.body.password
+    User.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
+      .then(() => res.status(200).json({ message: 'Objet modifié !' }))
+      .catch(error => res.status(400).json({ error }))
+  }
 }
