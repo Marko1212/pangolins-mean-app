@@ -36,6 +36,6 @@ app.get('/', (req, res, next) => {
   res.status(200).send('Pangolin backend')
 })
 
-app.use('/api/auth', userRoutes)
+app.use('/api', userRoutes)
 
 module.exports = app

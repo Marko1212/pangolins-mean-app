@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  private isAuth: boolean;
+  isAuth: boolean;
 
   constructor(private auth: AuthService,
               private router: Router) { }
@@ -24,6 +24,13 @@ export class NavbarComponent implements OnInit {
 
   onLogout() {
     this.auth.logout();
+  }
+
+  profile() {
+    if (this.auth.userId != null)
+      this.router.navigate(['/profile/' + this.auth.userId]);
+    else
+      this.router.navigate(['/']);
   }
 
 }
