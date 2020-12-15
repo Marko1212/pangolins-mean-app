@@ -8,7 +8,7 @@ exports.addFriend = (req, res, next) => {
 }
 
 exports.getFriends = (req, res, next) => {
-  Friends.findOne({ user: req.body.user })
+  Friends.findOne({ user: req.params.user })
     .then(things => res.status(200).json(things))
     .catch(error => res.status(400).json({ error }))
 }
