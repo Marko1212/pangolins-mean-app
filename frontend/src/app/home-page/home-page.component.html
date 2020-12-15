@@ -12,7 +12,7 @@
         <div class="d-flex">
           <span>{{ friend.email }}</span>
           <a class="btn btn-info ml-auto" [routerLink]="['/profile/' + friend._id]">Profile</a>
-          <button class="btn btn-danger ml-2">Remove</button>
+          <button class="btn btn-danger ml-2" (click)="onRemove(friend._id)">Remove</button>
         </div>
         <hr class="bg-light"/>
       </li>
@@ -32,7 +32,7 @@
       <div class="modal-body d-flex flex-column">
         <div class="d-flex my-1 align-items-center" *ngFor="let user of users">
           <span>{{ user.email }}</span>
-          <button class="btn btn-success ml-auto" (click)="onUserClick(user)">Add</button>
+          <button class="btn btn-success ml-auto" (click)="onUserClick(user._id)">Add</button>
         </div>
       </div>
       <div class="modal-footer">

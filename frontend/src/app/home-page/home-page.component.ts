@@ -34,10 +34,18 @@ export class HomePageComponent implements OnInit {
     .catch((error) => { console.log(error) });
   }
 
-  onUserClick(user: string) {
-    if (user._id == this.auth.userId) return;
-    this.userService.addFriend(this.auth.userEmail, user._id).then(() => {
+  onUserClick(id: string) {
+    if (id == this.auth.userId) return;
+    this.userService.addFriend(id).then(() => {
       console.log('New friend');
+    })
+    .catch((error) => { console.log(error) });
+  }
+
+  onRemove(id: string) {
+    console.log(id)
+    this.userService.removeFriend(id).then(() => {
+      console.log('You lost a friend');
     })
     .catch((error) => { console.log(error) });
   }
