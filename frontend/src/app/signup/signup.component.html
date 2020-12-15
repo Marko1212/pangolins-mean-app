@@ -1,1 +1,13 @@
-<p>signup works!</p>
+<div class="container">
+  <form class="d-flex flex-column">
+    <div class="input-group mb-3">
+      <input type="email" class="form-control" placeholder="Email" aria-label="Email" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+    </div>
+    <button class="btn btn-light mx-auto px-5" (clik)="onSubmit()">Sign up</button>
+    <a class="text-info mx-auto mt-5" [routerLink]="['/login']">Already have an account ?</a>
+  </form>
+</div>

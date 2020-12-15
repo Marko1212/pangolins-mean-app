@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container">
+  <form class="d-flex flex-column">
+    <div class="input-group mb-3">
+      <input type="email" class="form-control" placeholder="Email" aria-label="Email" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="password" class="form-control" placeholder="Password" aria-label="Password" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="number" class="form-control" placeholder="Age" aria-label="Age" min="1" max="20">
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Family" aria-label="Family" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Breed" aria-label="Breed" required>
+    </div>
+
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Food" aria-label="Food" required>
+    </div>
+
+    <button class="btn btn-light mx-auto px-5" (clik)="onSubmit()">Login</button>
+    <span class="text-light mx-auto mt-5">
+      Not a member ?
+      <a class="text-info" [routerLink]="['/signup']">Sign up now !</a>
+    </span>
+  </form>
+</div>
