@@ -4,15 +4,17 @@
       <h5 class="card-title">Pangolin Profile</h5>
       <p class="card-text">Personnal informations :</p>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Email : {{ email }}</li>
-      <li class="list-group-item">Age : {{ age }}</li>
-      <li class="list-group-item">Family : {{ family }}</li>
-      <li class="list-group-item">Breed : {{ breed }}</li>
-      <li class="list-group-item">Food : {{ food }}</li>
-    </ul>
+    <div class="card-body">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email : <span class="font-weight-bold">{{ email }}</span></li>
+        <li class="list-group-item">Age : <span class="font-weight-bold">{{ age }}</span></li>
+        <li class="list-group-item">Family : <span class="font-weight-bold">{{ family }}</span></li>
+        <li class="list-group-item">Breed : <span class="font-weight-bold">{{ breed }}</span></li>
+        <li class="list-group-item">Food : <span class="font-weight-bold">{{ food }}</span></li>
+      </ul>
+    </div>
     <div class="card-body d-flex">
-      <button *ngIf="isMyProfile" class="card-link ml-auto btn btn-warning px-3" (click)="onEdit()">Edit</button>
+      <button *ngIf="isMyProfile" id="editBtn" class="card-link ml-auto btn btn-warning px-3" (click)="onEdit()">Edit</button>
     </div>
   </div>
 </div>
