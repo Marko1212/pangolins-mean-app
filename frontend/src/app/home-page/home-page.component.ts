@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   friends: any[] = [];
-  friendsLoading: false;
+  friendsLoading = false;
   users: any = [];
 
   constructor(private auth: AuthService,
