@@ -22,6 +22,14 @@ export class LoginComponent implements OnInit {
       email: [null, [Validators.required, Validators.email]],
       password: [null, Validators.required]
     });
+
+    if (this.auth.isLoggedIn()) {
+      this.auth.relogin().then(() => {
+        this.router.navigate(['/']);
+      }).catch(error => {
+        this.errorMessage = error;
+      });
+    }
   }
 
   onSubmit() {

@@ -44,7 +44,8 @@ exports.login = (req, res, next) => {
               { userId: user._id },
               'DLM6q8Ld0J8rrSK41LmG',
               { expiresIn: '24h' }
-            )
+            ),
+            expiresIn: '86400'
           })
         })
         .catch(error => res.status(500).json({ error }))
