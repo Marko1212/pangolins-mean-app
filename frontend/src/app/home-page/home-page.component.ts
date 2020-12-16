@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class HomePageComponent implements OnInit {
 
   friends: any[] = [];
+  friendsLoading: false;
   users: any = [];
 
   constructor(private auth: AuthService,
@@ -18,15 +19,8 @@ export class HomePageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.getFriendsByEmail(this.auth.userEmail).then(friends => {
-      (<any>friends).friends.forEach(id => {
-        this.userService.getUserById(id).then(friend => {
-          this.friends.push(friend);
-        })
-        .catch((error) => { console.log(error) });
-      });
-    })
-    .catch((error) => { console.log(error) });
+    this.updateFriendsList();
+
 
     this.userService.getUsers().then(users => {
       this.users = users;
@@ -37,14 +31,30 @@ export class HomePageComponent implements OnInit {
   onUserClick(id: string) {
     if (id == this.auth.userId) return;
     this.userService.addFriend(id).then(() => {
-      console.log('New friend');
+      this.updateFriendsList();
     })
     .catch((error) => { console.log(error) });
   }
 
   onRemove(id: string) {
     this.userService.removeFriend(id).then(() => {
-      console.log('You lost a friend');
+      this.updateFriendsList();
+    })
+    .catch((error) => { console.log(error) });
+  }
+
+  updateFriendsList() {
+    this.userService.getFriendsByEmail(this.auth.userEmail).then(friends => {
+      var friendsNb: number = (<any>friends).friends.length;
+      if(friendsNb) this.friendsLoading = true;
+      this.friends = [];
+      (<any>friends).friends.forEach((id, i) => {
+        this.userService.getUserById(id).then(friend => {
+          this.friends.push(friend);
+          if (i == friendsNb -1) this.friendsLoading = false;
+        })
+        .catch((error) => { console.log(error) });
+      });
     })
     .catch((error) => { console.log(error) });
   }
