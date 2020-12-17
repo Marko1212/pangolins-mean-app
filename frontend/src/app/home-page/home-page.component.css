@@ -27,7 +27,8 @@ h1 {
   background-color: #0000000f;
 }
 
-button {
+.friends button,
+#addFriendsBtn {
   outline: none;
   border: none;
   border-radius: 10px;
