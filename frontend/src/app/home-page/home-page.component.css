@@ -26,3 +26,11 @@ h1 {
 .userRow:nth-child(2n) {
   background-color: #0000000f;
 }
+
+button {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px #171e22,
+    -2px -2px 2px #263238;
+}

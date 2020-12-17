@@ -2,27 +2,27 @@
   <h2 class="text-white text-center mb-5">Edit profile</h2>
   <form class="d-flex flex-column" [formGroup]="editForm">
     <div class="input-group mb-3">
-      <input type="email" class="form-control" placeholder="Email" id="email" formControlName="email" disabled>
+      <input type="email" placeholder="Email" id="email" formControlName="email" disabled>
     </div>
 
     <div class="input-group mb-3">
-      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password">
+      <input type="password" placeholder="Password" aria-label="Password" id="password" formControlName="password">
     </div>
 
     <div class="input-group mb-3">
-      <input type="number" class="form-control" placeholder="Age" aria-label="Age" min="1" max="20" id="age" formControlName="age">
+      <input type="number" placeholder="Age" aria-label="Age" min="1" max="20" id="age" formControlName="age">
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Family" aria-label="Family" id="family" formControlName="family">
+      <input type="text" placeholder="Family" aria-label="Family" id="family" formControlName="family">
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Breed" aria-label="Breed" id="breed" formControlName="breed">
+      <input type="text" placeholder="Breed" aria-label="Breed" id="breed" formControlName="breed">
     </div>
 
     <div class="input-group mb-3">
-      <input type="text" class="form-control" placeholder="Food" aria-label="Food" id="food" formControlName="food">
+      <input type="text" placeholder="Food" aria-label="Food" id="food" formControlName="food">
     </div>
     <div class="btn-group" role="group">
       <button class="btn btn-success mx-auto px-5" (click)="onEdit()" [disabled]="editForm.invalid">Save</button>

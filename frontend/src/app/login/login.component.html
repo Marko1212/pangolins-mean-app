@@ -1,15 +1,15 @@
 <div class="container">
-  <h2 class="text-white mb-5 text-center">Login</h2>
+  <h1 class="text-white mb-5 text-center">Login</h1>
   <form class="d-flex flex-column" [formGroup]="loginForm">
     <div class="input-group mb-3">
-      <input type="email" class="form-control" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
+      <input type="email" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
     </div>
 
     <div class="input-group mb-3">
-      <input type="password" class="form-control" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
+      <input type="password" placeholder="Password" aria-label="Password" id="password" formControlName="password" required>
     </div>
 
-    <button class="btn btn-light mx-auto px-5" (click)="onSubmit()">Login</button>
+    <button class="btn-info mx-auto px-5 py-2" (click)="onSubmit()" [disabled]="loginForm.invalid">Login</button>
     <p class="text-danger mt-2 text-center">{{ errorMessage }}</p>
     <span class="text-light mx-auto mt-5">
       Not a member ?

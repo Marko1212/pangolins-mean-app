@@ -12,7 +12,12 @@
               inset -5px 5px 5px #35464e;
 }
 
- #editBtn {
-  color: black;
-  width: 100px;
+ button {
+   color: black;
+   width: 100px;
+   outline: none;
+   border: none;
+   border-radius: 10px;
+   box-shadow: 2px 2px 2px #171e22,
+     -2px -2px 2px #263238;
  }

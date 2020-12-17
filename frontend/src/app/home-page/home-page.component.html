@@ -1,7 +1,7 @@
 <div class="container text-light my-4">
   <div class="d-flex my-5">
     <h1>Pangolinbook</h1>
-    <button type="button" class="btn btn-success ml-auto px-5" data-toggle="modal" data-target="#addFriendsModal">Add friends</button>
+    <button type="button" class="btn-success ml-auto px-3" data-toggle="modal" data-target="#addFriendsModal">Add friends</button>
   </div>
   <div class="container friends p-3">
     <h3 class="text-center">Friends</h3>
@@ -15,8 +15,8 @@
           class="list-group-item">
         <div class="d-flex">
           <span>{{ friend.email }}</span>
-          <a class="btn btn-info ml-auto" [routerLink]="['/profile/' + friend._id]">Profile</a>
-          <button class="btn btn-danger ml-2" (click)="onRemove(friend._id)">Remove</button>
+          <button class="btn-info ml-auto" [routerLink]="['/profile/' + friend._id]">Profile</button>
+          <button class="btn-danger ml-2" (click)="onRemove(friend._id)">Remove</button>
         </div>
         <hr class="bg-light"/>
       </li>

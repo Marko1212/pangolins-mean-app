@@ -4,3 +4,12 @@
   padding: 50px;
   border-radius: 40px;
 }
+
+.btn-group {
+  box-shadow: 2px 2px 2px #171e22,
+    -2px -2px 2px #263238;
+}
+
+.btn-group button {
+  border: none;
+}
