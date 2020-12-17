@@ -2,7 +2,11 @@
   <h1 class="text-white mb-5 text-center">Login</h1>
   <form class="d-flex flex-column" [formGroup]="loginForm">
     <div class="input-group mb-3">
-      <input type="email" placeholder="Email" aria-label="Email" id="email" formControlName="email" required>
+      <input type="email" placeholder="Email" aria-label="Email" id="email"
+             formControlName="email" required>
+      <div class="required "*ngIf="f.email.invalid && (f.email.dirty || f.email.touched)">
+         Please enter a valid email.
+      </div>
     </div>
 
     <div class="input-group mb-3">
