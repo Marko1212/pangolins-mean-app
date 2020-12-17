@@ -30,7 +30,7 @@ export class ModifyUserComponent implements OnInit {
           data => {
             this.editForm = this.formBuilder.group({
               email: [(<any>data).email],
-              password: [null],
+              password: [null, Validators.minLength(8)],
               age: [(<any>data).age, [Validators.min(1), Validators.max(20)]],
               family: [(<any>data).family],
               breed: [(<any>data).breed],
