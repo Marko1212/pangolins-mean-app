@@ -33,8 +33,12 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <div class="modal-body">
+        <input id="search" class="form-control text-white" type="search"
+               placeholder="Search" aria-label="Search" (keyup)="searchUser()">
+      </div>
       <div class="modal-body d-flex flex-column">
-        <div class="d-flex my-1 align-items-center userRow" *ngFor="let user of users">
+        <div class="my-1 align-items-center userRow" *ngFor="let user of users">
           <span>{{ user.email }}</span>
           <button class="btn btn-success ml-auto" (click)="onUserClick(user._id)">Add friend</button>
         </div>

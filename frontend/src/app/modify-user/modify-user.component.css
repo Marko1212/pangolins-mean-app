@@ -13,3 +13,7 @@
 .btn-group button {
   border: none;
 }
+
+input:disabled {
+  color: grey;
+}

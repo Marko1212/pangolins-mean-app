@@ -3,6 +3,8 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -57,5 +59,12 @@ export class HomePageComponent implements OnInit {
       });
     })
     .catch((error) => { console.log(error) });
+  }
+
+  searchUser() {
+      var value = $("#search").val().toLowerCase();
+      $(".userRow span").filter(function() {
+        $(this).parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
   }
 }

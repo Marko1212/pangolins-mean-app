@@ -21,6 +21,7 @@ h1 {
 
 .userRow {
   padding: 5px;
+  display: flex;
 }
 
 .userRow:nth-child(2n) {
