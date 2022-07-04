@@ -26,6 +26,7 @@ export class HomePageComponent implements OnInit {
 
     this.userService.getUsers().then(users => {
       this.users = users;
+      this.users = this.users.filter(user => user.email !== this.auth.userEmail);
     })
     .catch((error) => { console.log(error) });
   }

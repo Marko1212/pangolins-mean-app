@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isAuth: boolean;
+  loggedInUserEmail: string;
 
   constructor(private auth: AuthService,
               private router: Router) { }
@@ -18,6 +19,7 @@ export class NavbarComponent implements OnInit {
     this.auth.isAuth$.subscribe(
       (auth) => {
         this.isAuth = auth;
+        this.loggedInUserEmail = this.auth.userEmail;
       }
     );
   }
